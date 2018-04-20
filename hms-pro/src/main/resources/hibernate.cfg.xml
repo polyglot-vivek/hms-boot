@@ -21,6 +21,8 @@
    <mapping class="com.nareshit.domain.Doctor"/>
    <mapping class="com.nareshit.domain.Patient"/>
    <mapping class="com.nareshit.domain.PatientToDoctor"/>
+   <mapping class="com.nareshit.domain.Bed"/>
+   <mapping class="com.nareshit.domain.BedCategory"/>
          
  </session-factory>
 

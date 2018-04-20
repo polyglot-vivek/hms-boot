@@ -3,9 +3,12 @@ package com.nareshit.utility;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.nareshit.domain.Bed;
+import com.nareshit.domain.BedCategory;
 import com.nareshit.domain.Doctor;
 import com.nareshit.domain.Patient;
 import com.nareshit.domain.PatientToDoctor;
@@ -24,6 +27,41 @@ public class Testing {
 		
 		SessionFactory sf = HibernateUtility.getInstance();
 		Session ses = sf.openSession();
+		
+		/*Bed b = new Bed();
+		b.setBedNum(1);
+		b.setStatus(true);*/
+		
+		/*BedCategory bc = new BedCategory();
+		bc.setCategory("GEN");
+		
+		ses.save(bc);
+		ses.beginTransaction().commit();*/
+		
+		BedCategory cat = (BedCategory)ses.get(BedCategory.class, 1);
+		Bed b = (Bed)ses.get(Bed.class, 1);
+		/*b.setBedName(cat.getCategory()+"-"+b.getBedNum());
+		
+		List<Bed> bedList = new ArrayList<Bed>();
+		bedList.add(b);
+		cat.setBedList(bedList);
+		
+		ses.update(cat);
+		ses.beginTransaction().commit();*/
+		List<Bed> removedList = new ArrayList<Bed>();
+		for(Bed bd : cat.getBedList()) {
+			if(bd.getbId() == b.getbId()) {
+				removedList.add(bd);
+			}
+		}
+		
+		cat.getBedList().removeAll(removedList);
+		ses.update(cat);
+		ses.beginTransaction().commit();
+		
+		
+		
+		
 		/*Doctor doc = new Doctor();
 		doc.setFname("Jack");
 		doc.setLname("Tax");
@@ -36,10 +74,16 @@ public class Testing {
 		ses.save(doc);
 		ses.beginTransaction().commit();*/
 		
-		Doctor doc = (Doctor)ses.get(Doctor.class, 3);
+		/*Doctor doc = (Doctor)ses.get(Doctor.class, 1);
+		String hql = "from PatientToDoctor p2d where p2d.doc.id="+doc.getId();
+		Query q = ses.createQuery(hql);
+		List<PatientToDoctor> docList = q.list();
+		for(PatientToDoctor patd : docList) {
+			System.out.println(patd.getPat().getFname());
+		}*/
 		
-		Patient pat = (Patient)ses.get(Patient.class, 1);
-		
+		//Patient pat = (Patient)ses.get(Patient.class, 1);
+	//	List<PatientToDoctor> patdocList = new ArrayList<PatientToDoctor>();
 		/*List<PatientToDoctor> patdocList = new ArrayList<PatientToDoctor>();
 		
 		PatientToDoctor pat2Doc1 = new PatientToDoctor();
@@ -50,20 +94,20 @@ public class Testing {
 		
 		pat.setDocList(patdocList);*/
 		
-		for(PatientToDoctor patToDoc : pat.getDocList()) {
+		/*for(PatientToDoctor patToDoc : pat.getDocList()) {
 			Doctor doc1 = patToDoc.getDoc();
 			if(doc1.getId() == doc.getId()) {
 				deletedAssignedDoctor(patToDoc);
 			}
-		}
+		}*/
 		
 		
 		/*Patient pat = new Patient();
-		pat.setFname("Ram");
-		pat.setLname("Nihal");
-		pat.setEmail("ram@email.com");
-		pat.setMobile(9876543231l);
-		pat.setUserId("ram");
+		pat.setFname("James");
+		pat.setLname("Thomos");
+		pat.setEmail("james@email.com");
+		pat.setMobile(9876543251l);
+		pat.setUserId("James");
 		pat.setPassword("testUser");
 		pat.setCpassword("testUser");
 		
@@ -73,12 +117,12 @@ public class Testing {
 		
 		patdocList.add(pat2Doc1);
 		
-		pat.setDocList(patdocList);*/
+		pat.setDocList(patdocList);
 		
 		
-		/*ses.update(pat);
-		ses.beginTransaction().commit();*/
-		
+		ses.save(pat);
+		ses.beginTransaction().commit();
+		*/
 		/**
 		 * assiging patient to another doctor
 		 */

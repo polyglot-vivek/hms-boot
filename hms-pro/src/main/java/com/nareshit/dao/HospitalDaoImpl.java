@@ -2,7 +2,6 @@ package com.nareshit.dao;
 
 import java.util.List;
 
-import org.hamcrest.core.IsSame;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
