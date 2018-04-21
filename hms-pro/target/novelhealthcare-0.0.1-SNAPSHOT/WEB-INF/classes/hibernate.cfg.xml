@@ -16,11 +16,16 @@
    <property name="hibernate.show_sql">true</property>
    <property name="hibernate.format_sql">true</property>
    
+   <!-- enable lazy loading when there is no transaction -->
+  <!--  <property name="hibernate.enable_lazy_load_no_trans">true</property> -->
+   
    <mapping class="com.nareshit.domain.Hospital"/>
    <mapping class="com.nareshit.domain.Admin"/>
    <mapping class="com.nareshit.domain.Doctor"/>
    <mapping class="com.nareshit.domain.Patient"/>
    <mapping class="com.nareshit.domain.PatientToDoctor"/>
+   <mapping class="com.nareshit.domain.Bed"/>
+   <mapping class="com.nareshit.domain.BedCategory"/>
          
  </session-factory>
 

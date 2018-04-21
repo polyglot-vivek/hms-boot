@@ -6,6 +6,7 @@ import com.nareshit.dao.BedManagementDao;
 import com.nareshit.dao.BedManagementDaoImpl;
 import com.nareshit.domain.Bed;
 import com.nareshit.domain.BedCategory;
+import com.nareshit.domain.Patient;
 
 public class BedManagementDaoTest {
 
@@ -51,14 +52,25 @@ public class BedManagementDaoTest {
 		 * Mapping bed into the category
 		 */
 		
-	   /*Bed bd = bdMgmtDao.mapBedIntoCategory(1, 1);
+	  /* Bed bd = bdMgmtDao.mapBedIntoCategory(1, 1);
 	   System.out.println(bd.getBedName());*/
 		
 		/**
 		 * unmap bed from the bed category
 		 */
-		Bed bd = bdMgmtDao.unMapBedIntoCategory(1, 1);
-		System.out.println(bd.getBedName());
+		/*Bed bd = bdMgmtDao.unMapBedIntoCategory(1, 1);
+		System.out.println(bd.getBedName());*/
 		
+		/**
+		 * assigning bed to the patient
+		 */
+		/*Patient pat = bdMgmtDao.assignBedToPatient(1, 1);
+		System.out.println("patient "+pat.getUserId()+" assigned into:\t"+pat.getBed().getBedName());
+*/		
+		/**
+		 * unassigning patient from the bed
+		 */
+		Patient pat = bdMgmtDao.unAssignBedToPatient(1, 1);
+		//System.out.println("patient "+pat.getUserId()+" un assigned from:\t"+pat.getBed().getBedName());
 	}
 }

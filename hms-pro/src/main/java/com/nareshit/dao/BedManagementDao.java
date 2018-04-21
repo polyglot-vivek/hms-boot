@@ -22,4 +22,6 @@ public interface BedManagementDao {
 	public Patient assignBedToPatient(int bedId, int patId);
 	Bed getBedById(int bedId);
 	BedCategory getBedTypeByCatId(int bdCatId);
+	Patient unAssignBedToPatient(int bedId, int patId);
+	Bed doBedAvailable(Bed b);
 }

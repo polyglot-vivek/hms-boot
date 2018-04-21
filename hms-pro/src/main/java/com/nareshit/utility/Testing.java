@@ -38,8 +38,8 @@ public class Testing {
 		ses.save(bc);
 		ses.beginTransaction().commit();*/
 		
-		BedCategory cat = (BedCategory)ses.get(BedCategory.class, 1);
-		Bed b = (Bed)ses.get(Bed.class, 1);
+		/*BedCategory cat = (BedCategory)ses.get(BedCategory.class, 1);
+		Bed b = (Bed)ses.get(Bed.class, 1);*/
 		/*b.setBedName(cat.getCategory()+"-"+b.getBedNum());
 		
 		List<Bed> bedList = new ArrayList<Bed>();
@@ -48,7 +48,7 @@ public class Testing {
 		
 		ses.update(cat);
 		ses.beginTransaction().commit();*/
-		List<Bed> removedList = new ArrayList<Bed>();
+		/*List<Bed> removedList = new ArrayList<Bed>();
 		for(Bed bd : cat.getBedList()) {
 			if(bd.getbId() == b.getbId()) {
 				removedList.add(bd);
@@ -58,7 +58,7 @@ public class Testing {
 		cat.getBedList().removeAll(removedList);
 		ses.update(cat);
 		ses.beginTransaction().commit();
-		
+		*/
 		
 		
 		
@@ -73,7 +73,8 @@ public class Testing {
 		
 		ses.save(doc);
 		ses.beginTransaction().commit();*/
-		
+		Doctor doc = (Doctor)ses.get(Doctor.class, 1);
+		List<PatientToDoctor> patdocList = new ArrayList<PatientToDoctor>();
 		/*Doctor doc = (Doctor)ses.get(Doctor.class, 1);
 		String hql = "from PatientToDoctor p2d where p2d.doc.id="+doc.getId();
 		Query q = ses.createQuery(hql);
@@ -102,7 +103,7 @@ public class Testing {
 		}*/
 		
 		
-		/*Patient pat = new Patient();
+		Patient pat = new Patient();
 		pat.setFname("James");
 		pat.setLname("Thomos");
 		pat.setEmail("james@email.com");
@@ -122,7 +123,7 @@ public class Testing {
 		
 		ses.save(pat);
 		ses.beginTransaction().commit();
-		*/
+		
 		/**
 		 * assiging patient to another doctor
 		 */

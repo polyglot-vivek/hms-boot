@@ -29,6 +29,15 @@ public class Patient implements Serializable {
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="pat")
 	private List<PatientToDoctor> docList;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Bed bed;
+	
+	public Bed getBed() {
+		return bed;
+	}
+	public void setBed(Bed bed) {
+		this.bed = bed;
+	}
 	public List<PatientToDoctor> getDocList() {
 		return docList;
 	}

@@ -42,6 +42,7 @@ public class BedManagementDaoImpl implements BedManagementDao {
 		sf = HibernateUtility.getInstance();
 		Session ses = sf.openSession();
 		Bed bd = (Bed)ses.get(Bed.class, bedId);
+		//Bed bd = (Bed)ses.load(Bed.class, bedId);
 		ses.beginTransaction().commit();
 		ses.close();
 		return bd;
@@ -52,6 +53,7 @@ public class BedManagementDaoImpl implements BedManagementDao {
 		sf = HibernateUtility.getInstance();
 		Session ses = sf.openSession();
 		BedCategory bd = (BedCategory)ses.get(BedCategory.class, bdCatId);
+		//BedCategory bd = (BedCategory)ses.load(BedCategory.class, bdCatId);
 		ses.beginTransaction().commit();
 		ses.close();
 		return bd;
@@ -96,11 +98,11 @@ public class BedManagementDaoImpl implements BedManagementDao {
 		sf = HibernateUtility.getInstance();         
 	    Session ses = sf.openSession();
 		
-	    Bed wantToDeleteBed = (Bed)ses.get(Bed.class, bedId);
-	    //Bed wantToDeleteBed = getBedById(bedId);
-	    BedCategory bdc = (BedCategory)ses.get(BedCategory.class, catId);
+	   // Bed wantToDeleteBed = (Bed)ses.get(Bed.class, bedId);
+	    Bed wantToDeleteBed = getBedById(bedId);
+	   // BedCategory bdc = (BedCategory)ses.get(BedCategory.class, catId);
 	    
-	   // BedCategory bdc = getBedTypeByCatId(catId);
+	    BedCategory bdc = getBedTypeByCatId(catId);
         List<Bed> bedList = bdc.getBedList();
                
         List<Bed> removedBeds = new ArrayList<Bed>();
@@ -115,19 +117,68 @@ public class BedManagementDaoImpl implements BedManagementDao {
        bedList.removeAll(removedBeds);
        bdc.setBedList(bedList);
       
-       ses.update(bdc);
+       ses.merge(bdc);
        ses.beginTransaction().commit();
        ses.close();
-        //bdc = updateBedCat(bdc);
+      //  bdc = updateBedCat(bdc);
         
 		return wantToDeleteBed;
 	}
 
 	@Override
 	public Patient assignBedToPatient(int bedId, int patId) {
-		// TODO Auto-generated method stub
-		return null;
+		sf = HibernateUtility.getInstance();
+		Session ses = sf.openSession();
+		Bed bed = getBedById(bedId);
+		
+		Patient pat = (Patient)ses.get(Patient.class, patId);
+		if(bed != null && bed.isStatus()) {
+			pat.setBed(bed);
+		}else {
+			throw new RuntimeException("There is no bed assiciated with the number: "+bedId+
+					"This might because the bed was occupied already");
+		}
+		bed.setStatus(false);
+		ses.update(pat);
+		ses.beginTransaction().commit();
+		
+		return pat;
 	}
 	
+	@Override
+	public Patient unAssignBedToPatient(int bedId, int patId) {
+		sf = HibernateUtility.getInstance();
+		Session ses = sf.openSession();
+		Bed bed = getBedById(bedId);
+		Patient pat = (Patient)ses.get(Patient.class, patId);
+		
+		if(bed != null && !bed.isStatus()) {
+			//pat.setBed(null);
+			bed.setStatus(true);
+			bed = doBedAvailable(bed);
+		}
+		
+		
+		if(bed.isStatus()) {
+			pat.setBed(null);
+			ses.update(pat);
+			ses.beginTransaction().commit();
+		}else {
+			//bed = doBedAvailable(bed);
+			throw new RuntimeException("Cannt check-out the patient as the bed:\t"+bed.getBedName()+" is still assigned");
+		}
+		
+		
+		return pat;
+	}
+	
+	@Override
+	public Bed doBedAvailable(Bed b) {
+		sf = HibernateUtility.getInstance();
+		Session ses = sf.openSession();
+		ses.update(b);
+		ses.beginTransaction().commit();
+		return b;
+	}
 		
 }
