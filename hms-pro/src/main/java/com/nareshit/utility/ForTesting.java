@@ -16,11 +16,16 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
 public class ForTesting {
 
 	public static void main(String[] args) throws Exception {
-	
-		SSLContext context = SSLContext.getInstance("TLSv1.2");
+		
+			
+		/*SSLContext context = SSLContext.getInstance("TLSv1.2");
 		context.init(null,null,null);
 		SSLContext.setDefault(context); 
 		SSLSocketFactory factory = (SSLSocketFactory)context.getSocketFactory();
@@ -33,6 +38,6 @@ public class ForTesting {
 			System.out.println("protocol is:\t"+protocol);
 		}
 		
-		System.out.println("context protocol is:\t"+context.getProtocol());
+		System.out.println("context protocol is:\t"+context.getProtocol());*/
 	}
 }

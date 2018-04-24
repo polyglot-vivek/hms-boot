@@ -1,31 +1,34 @@
 package com.nareshit.service;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.nareshit.bean.HospitalBean;
-import com.nareshit.utility.ServiceUtil;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 public class HospitalServiceTest {
 
-	private static HospitalService hospService = null;
+	//private static HospitalService hospService = null;
 	
-	@BeforeClass
-	public static void setUp() {
+	/*ApplicationContext ctx = null;
+	HospitalService hospService = null;
+	
+	@Before
+	public void setUp() {
 		System.out.println("setup() calling");
-		hospService = new HospitalServiceImpl();
+		ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		hospService = (HospitalService)ctx.getBean(HospitalService.class);
 	}
 	
-	@AfterClass
-	public static void tearDown() {
+	@After
+	public void tearDown() {
 		System.out.println("teardown is calling");
 		hospService = null;
+		ctx = null;
 	}
 	
 	//@Test
@@ -53,8 +56,8 @@ public class HospitalServiceTest {
 		
 		
 	}
-	
-	@Test
+	//@Test
+	@org.junit.Ignore
 	public void testGetHospitalById() {
 		int hospId = 2;
 		HospitalBean hospBean = hospService.getHospitalById(hospId);
@@ -66,6 +69,6 @@ public class HospitalServiceTest {
 		}
 	
 		
-	}
+	}*/
 	
 }

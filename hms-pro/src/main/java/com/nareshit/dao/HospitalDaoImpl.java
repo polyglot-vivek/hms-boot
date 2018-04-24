@@ -5,15 +5,18 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.StatelessSession;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.nareshit.domain.Hospital;
 import com.nareshit.utility.HibernateUtility;
 
-import sun.security.x509.IssuerAlternativeNameExtension;
 
+//@Repository
+@Component
 public class HospitalDaoImpl implements HospitalDao {
 
+	
 	private SessionFactory factory = null;
 	private static Session ses = null;
 	public Hospital addHospital(Hospital hosp) {

@@ -4,18 +4,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import com.nareshit.bean.HospitalBean;
 import com.nareshit.dao.HospitalDao;
 import com.nareshit.dao.HospitalDaoImpl;
 import com.nareshit.domain.Hospital;
 import com.nareshit.utility.ServiceUtil;
 
+//@Service
+@Component
 public class HospitalServiceImpl implements HospitalService {
 
-	private HospitalDao hospDao= null;
-	public HospitalServiceImpl() {
+	@Autowired
+	private HospitalDao hospDao;
+	/*public HospitalServiceImpl() {
 		hospDao = new HospitalDaoImpl();
-	}
+	}*/
 	
 	@Override
 	public HospitalBean saveHospital(HospitalBean hospBean) {
