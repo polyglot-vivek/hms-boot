@@ -18,13 +18,34 @@ public class PatientBean implements Serializable{
 	@Override
 	public String toString() {
 		return "PatientBean [patId=" + patId + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", email=" + email + ", userId=" + userId + ", password=" + password + ", gender=" + gender
-				+ ", mobilenumber=" + mobilenumber + ", pat_type=" + pat_type + ", createdDate=" + createdDate
-				+ ", createdBy=" + createdBy + ", modifiedDate=" + modifiedDate + ", modifiedBy=" + modifiedBy + "]";
+				+ lastName + ", email=" + email + ", userId=" + userId + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", mobilenumber="
+				+ mobilenumber + ", pat_type=" + pat_type + ", createdDate=" + createdDate + ", createdBy=" + createdBy
+				+ ", modifiedDate=" + modifiedDate + ", modifiedBy=" + modifiedBy + "]";
 	}
 	private String userId;
 	private String password;
+	private String confirmPassword;
+	private String phoneNumber;
 	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public long getMobilenumber() {
+		return mobilenumber;
+	}
+	public void setMobilenumber(long mobilenumber) {
+		this.mobilenumber = mobilenumber;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	public int getPatId() {
 		return patId;
 	}
@@ -73,12 +94,7 @@ public class PatientBean implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getMobilenumber() {
-		return mobilenumber;
-	}
-	public void setMobilenumber(String mobilenumber) {
-		this.mobilenumber = mobilenumber;
-	}
+	
 	public String getPat_type() {
 		return pat_type;
 	}
@@ -110,7 +126,7 @@ public class PatientBean implements Serializable{
 		this.modifiedBy = modifiedBy;
 	}
 	private String gender;
-	private String mobilenumber;
+	private long mobilenumber;
 	
 	private String pat_type;
 	

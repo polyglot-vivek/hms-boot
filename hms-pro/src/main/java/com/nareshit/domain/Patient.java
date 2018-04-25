@@ -1,6 +1,7 @@
 package com.nareshit.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 public class Patient implements Serializable {
@@ -25,6 +28,12 @@ public class Patient implements Serializable {
 	private String userId;
 	@Column(nullable=false)
 	private String password;
+	
+	@Column(nullable=false)
+	private String cpassword;
+	
+	@Type(type="yes_no")
+	private boolean isActive=false;
 	
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="pat")
 	private List<PatientToDoctor> docList;
@@ -49,8 +58,7 @@ public class Patient implements Serializable {
 		return "Doctor [id=" + id + ", fname=" + fname + ", lname=" + lname + ", userId=" + userId + ", password="
 				+ password + ", cpassword=" + cpassword + ", email=" + email + ", mobile=" + mobile + "]";
 	}
-	@Column(nullable=false)
-	private String cpassword;
+	
 	
 	public int getId() {
 		return id;
@@ -105,4 +113,40 @@ public class Patient implements Serializable {
 	@Column(unique=true,nullable=false)
 	private long mobile;
 
+	private String createdBy;
+	private Date createdDate;
+	private String modifiedBy;
+	private Date modifiedDate;
+	private String pat_type;
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+	public String getPat_type() {
+		return pat_type;
+	}
+	public void setPat_type(String pat_type) {
+		this.pat_type = pat_type;
+	}
 }
