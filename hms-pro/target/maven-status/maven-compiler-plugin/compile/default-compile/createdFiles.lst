@@ -1,5 +1,6 @@
 com\nareshit\controller\HomeController.class
 com\nareshit\bean\HospitalBean.class
+com\nareshit\domain\Role.class
 com\nareshit\utility\Testing.class
 com\nareshit\dao\AdminDaoImpl.class
 com\nareshit\domain\Patient.class
@@ -16,6 +17,8 @@ com\nareshit\domain\PatientToDoctor.class
 com\nareshit\bean\EmailBean.class
 com\nareshit\bean\AdminBean.class
 com\nareshit\domain\BedCategory.class
+com\nareshit\domain\RoleToPermission.class
+com\nareshit\domain\Permission.class
 com\nareshit\service\HospitalServiceImpl.class
 com\nareshit\service\EmailService.class
 com\nareshit\domain\Hospital.class

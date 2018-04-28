@@ -5,6 +5,7 @@ D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nares
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\BedManagementDao.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Admin.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\BedCategory.java
+D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\RoleToPermission.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Doctor.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\bean\AdminBean.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\bean\EmailBean.java
@@ -22,6 +23,8 @@ D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nares
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\utility\ServiceConstants.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\controller\HomeController.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Hospital.java
+D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Permission.java
+D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Role.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\PatientDao.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\AdminDaoImpl.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\HospitalDaoImpl.java

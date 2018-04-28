@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.HibernateError;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.exception.ConstraintViolationException;
+import org.hibernate.exception.SQLGrammarException;
 
 import com.nareshit.domain.Bed;
 import com.nareshit.domain.BedCategory;
@@ -179,6 +182,24 @@ public class BedManagementDaoImpl implements BedManagementDao {
 		ses.update(b);
 		ses.beginTransaction().commit();
 		return b;
+	}
+	
+	public static void main(String[] args) {
+		try {
+			Bed bd = new Bed();
+			bd.setbId(1);
+			bd.setBedNum(100);
+			bd.setCreatedBy("admin");
+			bd.setModifiedBy("admin");
+			bd.setCreatedDate(new Date());
+			bd.setModifiedDate(new Date());
+			bd.setBedName("ICU-1");
+			BedManagementDao bedDao = new BedManagementDaoImpl();
+			bedDao.addBed(bd);
+		}catch (HibernateError e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 		
 }

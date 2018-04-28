@@ -35,6 +35,12 @@ public class Patient implements Serializable {
 	@Type(type="yes_no")
 	private boolean isActive=false;
 	
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="pat")
 	private List<PatientToDoctor> docList;
 	

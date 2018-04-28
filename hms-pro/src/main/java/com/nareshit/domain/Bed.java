@@ -18,6 +18,8 @@ public class Bed {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int bId;
+	
+	@Column(unique=true)
 	private String bedName;
 	
 	@Type(type="yes_no")

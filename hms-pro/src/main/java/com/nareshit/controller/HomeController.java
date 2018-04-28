@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nareshit.bean.EmailBean;
@@ -49,9 +50,9 @@ public class HomeController {
 		   EmailBean mailBean = new EmailBean();
      	   mailBean.setTo(patBean.getEmail());
      	   mailBean.setSubject(ServiceConstants.REG_SUCCESS_MAIL_SUB);
-           
-     	   String activationLink = ServiceConstants.HMS_PRO_ACTIVATION_LINK+patBean.getUserId();
-     	   StringBuilder sb = new StringBuilder();
+           String activationLink = ServiceConstants.HMS_PRO_ACTIVATION_LINK+patBean.getUserId();
+     	   
+           StringBuilder sb = new StringBuilder();
      	   sb.append(ServiceConstants.HMS_PRO_MAIL_BODY);
      	   sb.append("\n");
      	   sb.append(activationLink);
@@ -64,5 +65,22 @@ public class HomeController {
 		}
 		return resPage;
 		
+	}
+	
+	@RequestMapping(value="/activateUser/{userId}")
+	public String activateUser(@PathVariable("userId") String userId) {
+		System.out.println("user id is:\t"+userId);
+		boolean isPatExisted = false;
+		if(userId != null && !userId.isEmpty()) {
+			isPatExisted = patService.isPatientExisted(userId);
+		}
+		if(isPatExisted) {
+			boolean isUserActivated = patService.activateUser(userId);
+			if(isUserActivated) {
+				return "login";
+			}
+		}
+		
+		return "home";
 	}
 }

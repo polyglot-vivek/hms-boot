@@ -71,4 +71,15 @@ public class PatientServiceImpl implements PatientService {
 		return patBean;
 	}
 
+	@Override
+	public boolean isPatientExisted(String userId) {
+		return patDao.isPatientExisted(userId);
+	}
+
+	@Override
+	public boolean activateUser(String userId) {
+		// TODO Auto-generated method stub
+		return patDao.activateUser(userId);
+	}
+
 }
