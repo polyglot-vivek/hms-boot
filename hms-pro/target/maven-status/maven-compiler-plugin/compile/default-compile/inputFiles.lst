@@ -26,6 +26,7 @@ D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nares
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Permission.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\domain\Role.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\PatientDao.java
+D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\config\CustomeAuthenticationProvider.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\AdminDaoImpl.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\HospitalDaoImpl.java
 D:\workspace\nareshit\novelhealthcare-project-01\hms-pro\src\main\java\com\nareshit\dao\BedManagementDaoImpl.java

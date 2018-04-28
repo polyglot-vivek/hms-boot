@@ -103,7 +103,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><i class="icon-home icon-black"></i><a href="#">Home</a></li>
                         <li><a href="getSignUpPage">Signup</a></li>
-                        <li><a href="getLoginPage">Login</a></li>
+                        <li><a href="login">Login</a></li>
+                       <!--  <li><a href="getWindowLogin">Login</a></li> -->
                         <li><a href="about">About</a></li>
                         <li><a href="contact">Contact</a></li>
                          <li><a href="contact"></a></li>

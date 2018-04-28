@@ -15,6 +15,7 @@ com\nareshit\service\HospitalService.class
 com\nareshit\bean\PatientBean.class
 com\nareshit\domain\PatientToDoctor.class
 com\nareshit\bean\EmailBean.class
+com\nareshit\config\CustomeAuthenticationProvider.class
 com\nareshit\bean\AdminBean.class
 com\nareshit\domain\BedCategory.class
 com\nareshit\domain\RoleToPermission.class
