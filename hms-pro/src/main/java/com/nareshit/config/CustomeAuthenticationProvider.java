@@ -11,10 +11,14 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Component
 public class CustomeAuthenticationProvider implements AuthenticationProvider{
 
+	
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 		 String username = auth.getName();
@@ -26,7 +30,7 @@ public class CustomeAuthenticationProvider implements AuthenticationProvider{
 	        if((username != null && !username.isEmpty()) 
 	        		&& (password != null && !password.isEmpty())) {
 	        	//do ldap or db chekin
-	        	role="admin";
+	        	role="superAdmin";
 	        	
 	        	SimpleGrantedAuthority sga = new SimpleGrantedAuthority(role);
 	        	rolesList.add(sga);
