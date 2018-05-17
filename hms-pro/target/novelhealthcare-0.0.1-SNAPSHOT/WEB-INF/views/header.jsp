@@ -48,6 +48,18 @@
           </ul>
         </li>
       </ul> -->
+      <section>
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/img/def-profile-img.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Super Admin</p>
+                <a>Super Administrator</a>
+            </div>
+        </div>
+        
+      </section>
       <p class="navbar-text navbar-right">
 	      <div class="navbar-header">
 	      	<img src="./resources/images/hospital-logo.jpg" alt="logo" class="img img-responsive"  width="80" height="80"/>

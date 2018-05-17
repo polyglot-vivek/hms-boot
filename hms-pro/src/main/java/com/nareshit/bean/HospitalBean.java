@@ -104,6 +104,13 @@ public class HospitalBean {
 	public String getCreatedDate() {
 		return createdDate;
 	}
+	@Override
+	public String toString() {
+		return "HospitalBean [Id=" + Id + ", name=" + name + ", town=" + town + ", landMark=" + landMark + ", city="
+				+ city + ", state=" + state + ", zipcode=" + zipcode + ", email=" + email + ", phone=" + phone
+				+ ", fax=" + fax + ", status=" + status + ", createdBy=" + createdBy + ", modifiedBy=" + modifiedBy
+				+ ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + "]";
+	}
 	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}

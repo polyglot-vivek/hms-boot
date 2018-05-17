@@ -64,6 +64,16 @@ public class HospitalServiceImpl implements HospitalService {
 		return hospBeansList;
 	}
 	
+	@Override
+	public List<HospitalBean> getAllHospitals() {
+		List<Hospital> hospDomainList = hospDao.getAllHospitals();
+		List<HospitalBean> hospBeansList = new ArrayList<HospitalBean>();
+		for(Hospital hosp:hospDomainList) {
+			hospBeansList.add(mapDomainToBean(hosp));
+		}
+		return hospBeansList;
+	}
+	
 	private Hospital mapBeanToDomain(HospitalBean hospBean) {
 		Hospital hosp = null; 
 		if(hospBean != null) {

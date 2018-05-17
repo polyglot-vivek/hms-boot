@@ -96,5 +96,16 @@ public class HospitalDaoImpl implements HospitalDao {
 		List<Hospital> hospList = q.list();
 		return hospList;
 	}
+	
+	@Override
+	public List<Hospital>  getAllHospitals(){
+		String hql = "from Hospital h";
+	    factory = HibernateUtility.getInstance();
+	    ses = factory.openSession();
+	    
+	    Query q = ses.createQuery(hql);
+	   List<Hospital> hospList = q.list();
+		return hospList;
+	}
 
 }

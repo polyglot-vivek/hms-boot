@@ -1,3 +1,4 @@
+com\nareshit\controller\HospitalController.class
 com\nareshit\controller\HomeController.class
 com\nareshit\bean\HospitalBean.class
 com\nareshit\domain\Role.class

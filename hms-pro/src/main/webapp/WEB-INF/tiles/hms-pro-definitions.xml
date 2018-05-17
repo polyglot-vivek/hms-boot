@@ -16,4 +16,8 @@
     <put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
     <put-attribute name="body" value="/WEB-INF/views/body.jsp" />
   </definition>
+  
+  <definition name="superAdminBoardWithHospList" extends="superAdminBoard">
+    <put-attribute name="body" value="/WEB-INF/views/hospBoard.jsp" />
+  </definition>
 </tiles-definitions>

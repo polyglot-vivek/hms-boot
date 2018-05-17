@@ -13,5 +13,6 @@ public interface HospitalDao {
 	public List<Hospital>  searchAllHospitals(String hospname,String email, String city);
 	
 	public List<Hospital>  getAllHospitalsByPaging(int currPage,int noOfRecPage);
+	List<Hospital> getAllHospitals();
 	
 }

@@ -34,7 +34,7 @@
     <span class="label label-success">Hospital Management</span><span class="caret"></span></a>
                 
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="#"><span class="label label-primary">Hospitals</span></a></li>
+                    <li class="active"><a href="./hospCntrl/getAllHospitals"><span class="label label-primary">Hospitals</span></a></li>
                     
                 </ul>
   </div>
