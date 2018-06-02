@@ -1,0 +1,21 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver 
+    url: jdbc:mysql://localhost:3306/hmspro
+    username: root
+    password: root
+  profiles: dev
+
+---
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:hmspro
+    username: sa
+    password:     
+  profiles: qa
+---
+spring:
+  profiles:
+    active: qa
